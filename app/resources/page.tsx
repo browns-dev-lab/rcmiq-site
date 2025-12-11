@@ -1,7 +1,21 @@
 // ==========================================
 // FILE: app/resources/page.tsx
 // ==========================================
+
+"use client";
+
+import ContactUs from "@/components/common/ContactUs";
+import { useState, useEffect } from "react";
+import { RingLoader } from "react-spinners";
+
 export default function Resources() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(t);
+  }, []);
+
   const resources = [
     {
       title: "Healthcare Compliance Guide",
@@ -29,6 +43,14 @@ export default function Resources() {
     },
   ];
 
+  if (loading) {
+    return (
+      <div className="w-full h-[60vh] flex items-center justify-center">
+        <RingLoader color="#00e6df" size={90} />
+      </div>
+    );
+  }
+
   return (
     <section className="max-w-7xl mx-auto px-6 py-24">
       <h1 className="text-5xl font-bold text-teal-700 mb-8 text-center">
@@ -44,7 +66,7 @@ export default function Resources() {
           <a
             key={r.title}
             href={r.link}
-            className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition transform flex flex-col justify-between"
+            className="bg-white p-6 rounded-2xl border border-gray-200 transition transform hover:-translate-y-1 flex flex-col justify-between"
           >
             <span className="text-sm font-semibold text-teal-500 mb-2">
               {r.type}
@@ -59,6 +81,7 @@ export default function Resources() {
           </a>
         ))}
       </div>
+      <ContactUs />
     </section>
   );
 }

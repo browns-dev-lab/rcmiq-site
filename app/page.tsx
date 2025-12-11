@@ -11,6 +11,7 @@ import AboutSection from "@/components/home/About";
 import { RingLoader } from "react-spinners";
 import { useState, useEffect } from "react";
 import Services from "@/components/home/Services";
+import Testimonials from "@/components/home/Testimonials";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -35,6 +36,7 @@ export default function Home() {
       <AboutSection />
       <Features />
       <CTA />
+      <Testimonials />
       <ContactUs />
     </div>
   );

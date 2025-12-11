@@ -25,7 +25,7 @@ export default function Features() {
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-teal-200 to-teal-50 border border-teal-200 rounded-3xl -z-10"></div>
 
-      <h2 className="text-4xl font-semibold text-center text-teal-700 mb-12">
+      <h2 className="text-4xl font-semibold text-center text-teal-800 mb-12">
         Our Core Features
       </h2>
 
@@ -33,7 +33,7 @@ export default function Features() {
         {items.map((f) => (
           <div
             key={f.title}
-            className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transition transform hover:-translate-y-1 duration-300"
+            className="bg-white p-8 rounded-2xl shadow-xs border border-gray-100 hover:shadow-sm transition transform hover:-translate-y-1 duration-300"
           >
             {f.icon && (
               <img
@@ -42,7 +42,7 @@ export default function Features() {
                 className="w-14 h-14 mb-4 animate-bounce-slow"
               />
             )}
-            <h3 className="text-2xl font-semibold mb-3 text-teal-700">
+            <h3 className="text-2xl font-semibold mb-3 text-gray-800">
               {f.title}
             </h3>
             <p className="text-gray-600">{f.desc}</p>

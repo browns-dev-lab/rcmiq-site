@@ -1,7 +1,21 @@
 // ==========================================
 // FILE: app/expertise/page.tsx
 // ==========================================
+
+"use client";
+
+import ContactUs from "@/components/common/ContactUs";
+import { useState, useEffect } from "react";
+import { RingLoader } from "react-spinners";
+
 export default function Expertise() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(t);
+  }, []);
+
   const expertiseAreas = [
     {
       title: "Healthcare Technology",
@@ -49,6 +63,14 @@ export default function Expertise() {
     },
   ];
 
+  if (loading) {
+    return (
+      <div className="w-full h-[60vh] flex items-center justify-center">
+        <RingLoader color="#00e6df" size={90} />
+      </div>
+    );
+  }
+
   return (
     <section className="max-w-6xl mx-auto px-6 py-24">
       <h1 className="text-5xl font-bold text-teal-700 mb-12 text-center">
@@ -59,7 +81,7 @@ export default function Expertise() {
         {expertiseAreas.map((area) => (
           <div
             key={area.title}
-            className="flex flex-col md:flex-row gap-6 items-start bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl transition transform hover:-translate-y-1"
+            className="flex flex-col md:flex-row gap-6 items-start bg-white p-6 rounded-2xl border border-gray-200 transition"
           >
             <img
               src={area.icon}
@@ -80,6 +102,7 @@ export default function Expertise() {
           </div>
         ))}
       </div>
+      <ContactUs />
     </section>
   );
 }

@@ -1,7 +1,28 @@
 // ==========================================
 // FILE: app/contact/page.tsx
 // ==========================================
+
+"use client";
+
+import { useState, useEffect } from "react";
+import { RingLoader } from "react-spinners";
+
 export default function Contact() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(t);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="w-full h-[60vh] flex items-center justify-center">
+        <RingLoader color="#00e6df" size={90} />
+      </div>
+    );
+  }
+
   return (
     <section className="relative max-w-6xl mx-auto px-6 py-24">
       {/* Decorative background shape */}
@@ -17,22 +38,23 @@ export default function Contact() {
 
       <div className="grid md:grid-cols-2 gap-12">
         {/* Contact Form */}
-        <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+        <div className="bg-white p-8 rounded-3xl border border-gray-200">
           <form className="grid gap-4">
             <input
               type="text"
               placeholder="Your Name"
-              className="border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+              className="border border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
             />
             <input
               type="email"
               placeholder="Your Email"
-              className="border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+              className="border border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
             />
             <textarea
               placeholder="Your Message"
-              className="border border-gray-200 rounded-xl p-3 h-36 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+              className="border border-gray-300 rounded-xl p-3 h-36 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
             ></textarea>
+
             <button className="bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-xl font-semibold transition">
               Send Message
             </button>

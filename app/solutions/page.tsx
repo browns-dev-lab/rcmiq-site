@@ -1,7 +1,21 @@
 // ==========================================
 // FILE: app/solutions/page.tsx
 // ==========================================
+
+"use client";
+
+import ContactUs from "@/components/common/ContactUs";
+import { useState, useEffect } from "react";
+import { RingLoader } from "react-spinners";
+
 export default function Solutions() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(t);
+  }, []);
+
   const solutions = [
     {
       title: "Revenue Cycle Management",
@@ -25,10 +39,18 @@ export default function Solutions() {
     },
   ];
 
+  if (loading) {
+    return (
+      <div className="w-full h-[60vh] flex items-center justify-center">
+        <RingLoader color="#00e6df" size={90} />
+      </div>
+    );
+  }
+
   return (
     <section className="relative max-w-7xl mx-auto px-6 py-24">
-      {/* Optional subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-teal-50 to-white rounded-3xl -z-10"></div>
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 rounded-3xl -z-10"></div>
 
       <h1 className="text-5xl font-bold text-teal-700 mb-12 text-center">
         Our Solutions
@@ -38,7 +60,7 @@ export default function Solutions() {
         {solutions.map((s) => (
           <div
             key={s.title}
-            className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transition transform hover:-translate-y-1 text-center"
+            className="bg-white p-6 rounded-2xl border border-gray-200 transition text-center"
           >
             <img
               src={s.icon}
@@ -52,6 +74,7 @@ export default function Solutions() {
           </div>
         ))}
       </div>
+      <ContactUs />
     </section>
   );
 }

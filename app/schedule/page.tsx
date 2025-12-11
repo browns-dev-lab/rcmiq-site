@@ -1,7 +1,28 @@
 // ==========================================
 // FILE: app/schedule/page.tsx
 // ==========================================
+
+"use client";
+
+import { useState, useEffect } from "react";
+import { RingLoader } from "react-spinners";
+
 export default function ScheduleCall() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(t);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="w-full h-[60vh] flex items-center justify-center">
+        <RingLoader color="#00e6df" size={90} />
+      </div>
+    );
+  }
+
   return (
     <section className="relative max-w-6xl mx-auto px-6 py-24">
       {/* Background decorative shape */}
@@ -10,32 +31,37 @@ export default function ScheduleCall() {
       <h1 className="text-5xl font-bold text-teal-700 mb-4 text-center">
         Schedule a Call
       </h1>
+
       <p className="text-lg text-gray-600 mb-12 text-center max-w-2xl mx-auto">
         Choose a time that works for you and our team will reach out to discuss
         your needs.
       </p>
 
-      <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 max-w-xl mx-auto">
+      <div className="bg-white p-8 rounded-3xl border border-gray-200 max-w-xl mx-auto">
         <form className="grid gap-4">
           <input
             type="text"
             placeholder="Your Name"
-            className="border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+            className="border border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
           />
+
           <input
             type="email"
             placeholder="Your Email"
-            className="border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+            className="border border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
           />
+
           <input
             type="tel"
             placeholder="Phone Number"
-            className="border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+            className="border border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
           />
+
           <textarea
             placeholder="Message / Notes"
-            className="border border-gray-200 rounded-xl p-3 h-32 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+            className="border border-gray-300 rounded-xl p-3 h-32 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
           ></textarea>
+
           <button className="bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-xl font-semibold transition">
             Schedule Call
           </button>

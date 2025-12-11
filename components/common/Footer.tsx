@@ -143,8 +143,8 @@ export default function Footer() {
       </div>
 
       {/* Contact Info + CTA */}
-      <div className="border-t border-teal-300 mt-10 pt-6">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="border-t border-teal-300 mt-10 mx-10 pt-6">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center gap-6">
           <div className="text-gray-700 text-sm space-y-2">
             <p className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-teal-600" /> support@rcmiq.com
