@@ -32,8 +32,8 @@ export default function AboutSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-brand mb-4 leading-tight">
-            About Our Company
+          <h2 className="text-3xl text-teal-800 md:text-4xl text-brand mb-4 leading-tight">
+            Who We Are?
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-6">
             We are committed to delivering high‑quality solutions that empower
