@@ -37,15 +37,16 @@ export default function Navbar() {
   return (
     <nav
       className={`
-        sticky top-0 z-50 transition-all duration-300
-        ${showNav ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"}
-        rounded-b-3xl
-        ${
-          isScrolled
-            ? "bg-teal-100/90 border border-teal-200 shadow-lg backdrop-blur-md"
-            : "bg-transparent border-transparent shadow-none"
-        }
-      `}
+    ${isScrolled ? "sticky top-0" : "absolute top-0"}
+    w-full z-50 transition-all duration-300
+    ${showNav ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"}
+    
+    ${
+      isScrolled
+        ? "bg-teal-100/50 border border-teal-100 shadow-lg backdrop-blur-md"
+        : "bg-transparent border-transparent shadow-none"
+    }
+  `}
     >
       <div className="max-w-7xl mx-auto py-3 px-6 flex items-center justify-between relative">
         {/* Logo */}
@@ -215,7 +216,7 @@ export default function Navbar() {
             {/* Mobile CTA */}
             <Link
               href="/schedule"
-              className="bg-teal-500 text-white px-4 py-3 rounded-lg text-center mt-2 hover:bg-teal-600 transition w-full"
+              className="btn-primary btn mt-2 transition w-full"
               onClick={toggleMenu}
             >
               Schedule a Call
