@@ -1,5 +1,5 @@
 // ==========================================
-// FILE: components/home/Features.jsx
+// FILE: components/home/Features.tsx
 // ==========================================
 "use client";
 
@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
 
 export default function Features() {
-  const sliderRef = useRef(null);
+  const sliderRef = useRef<HTMLDivElement | null>(null);
 
   const items = [
     {
@@ -32,10 +32,14 @@ export default function Features() {
     },
   ];
 
-  const scroll = (direction) => {
+  const scroll = (direction: "left" | "right") => {
     if (!sliderRef.current) return;
+
     const amount = direction === "left" ? -320 : 320;
-    sliderRef.current.scrollBy({ left: amount, behavior: "smooth" });
+    sliderRef.current.scrollBy({
+      left: amount,
+      behavior: "smooth",
+    });
   };
 
   return (
