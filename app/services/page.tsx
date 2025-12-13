@@ -1,12 +1,9 @@
-// ==========================================
-// FILE: app/services/page.tsx
-// ==========================================
-
 "use client";
 
 import ContactUs from "@/components/common/ContactUs";
 import { useState, useEffect } from "react";
 import { RingLoader } from "react-spinners";
+import { Server, BarChart2, Shield, Cloud } from "lucide-react"; // example icons
 
 export default function Services() {
   const [loading, setLoading] = useState(true);
@@ -17,10 +14,22 @@ export default function Services() {
   }, []);
 
   const services = [
-    "Healthcare software development",
-    "Financial dashboards & analytics",
-    "HIPAA & financial compliance consulting",
-    "Secure cloud infrastructure setups",
+    {
+      title: "Healthcare software development",
+      icon: <Server size={24} className="text-teal-600" />,
+    },
+    {
+      title: "Financial dashboards & analytics",
+      icon: <BarChart2 size={24} className="text-teal-600" />,
+    },
+    {
+      title: "HIPAA & financial compliance consulting",
+      icon: <Shield size={24} className="text-teal-600" />,
+    },
+    {
+      title: "Secure cloud infrastructure setups",
+      icon: <Cloud size={24} className="text-teal-600" />,
+    },
   ];
 
   if (loading) {
@@ -32,27 +41,29 @@ export default function Services() {
   }
 
   return (
-    <section className="relative max-w-7xl mx-auto px-6 py-24">
-      {/* Optional subtle gradient background */}
-      <div className="absolute inset-0 "></div>
+    <main>
+      <section className="relative w-full py-24 bg-teal-50">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h1 className="text-5xl font-bold text-teal-700 mb-12">
+            Our Services
+          </h1>
 
-      <h1 className="text-5xl font-bold text-teal-700 mb-12 text-center">
-        Our Services
-      </h1>
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-        {services.map((service) => (
-          <div
-            key={service}
-            className="bg-white p-6 rounded-2xl border border-gray-200 transition"
-          >
-            <p className="text-lg text-gray-700 flex items-center gap-3">
-              <span className="text-teal-500 font-bold">✔</span> {service}
-            </p>
+          <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-6 flex flex-col items-start gap-4 hover:scale-105 transition-transform duration-200"
+              >
+                <div>{service.icon}</div>
+                <p className="text-lg font-semibold text-gray-800">
+                  {service.title}
+                </p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      </section>
       <ContactUs />
-    </section>
+    </main>
   );
 }

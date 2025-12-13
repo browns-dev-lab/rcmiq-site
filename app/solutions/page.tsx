@@ -48,33 +48,40 @@ export default function Solutions() {
   }
 
   return (
-    <section className="relative max-w-7xl mx-auto px-6 py-24">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 rounded-3xl -z-10"></div>
+    <main>
+      <section className="relative max-w-7xl mx-auto px-6 py-24">
+        <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-16">
+          Purpose-built solutions designed to simplify operations, ensure
+          compliance, and drive smarter healthcare and financial decisions.
+        </p>
 
-      <h1 className="text-5xl font-bold text-teal-700 mb-12 text-center">
-        Our Solutions
-      </h1>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {solutions.map((s) => (
+            <div
+              key={s.title}
+              className="group relative p-6 rounded-3xl bg-white transition-all duration-300 hover:-translate-y-2"
+            >
+              {/* Accent line */}
+              <span className="absolute left-0 top-6 h-10 w-1 bg-teal-500 rounded-full opacity-0 group-hover:opacity-100 transition" />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {solutions.map((s) => (
-          <div
-            key={s.title}
-            className="bg-white p-6 rounded-2xl border border-gray-200 transition text-center"
-          >
-            <img
-              src={s.icon}
-              alt={s.title}
-              className="w-14 h-14 mb-4 mx-auto"
-            />
-            <h3 className="text-xl font-semibold text-teal-700 mb-2">
-              {s.title}
-            </h3>
-            <p className="text-gray-600">{s.desc}</p>
-          </div>
-        ))}
-      </div>
+              {/* Icon blob */}
+              <div className="w-16 h-16 mb-6 mx-auto rounded-2xl bg-teal-100 flex items-center justify-center">
+                <img src={s.icon} alt={s.title} className="w-8 h-8" />
+              </div>
+
+              <h3 className="text-xl font-semibold text-teal-700 mb-3 text-center">
+                {s.title}
+              </h3>
+
+              <p className="text-gray-600 text-center text-sm leading-relaxed">
+                {s.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <ContactUs />
-    </section>
+    </main>
   );
 }

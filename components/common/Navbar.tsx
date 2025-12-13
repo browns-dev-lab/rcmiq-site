@@ -1,6 +1,3 @@
-// ==========================================
-// FILE: components/Navbar.tsx
-// ==========================================
 "use client";
 
 import Link from "next/link";
@@ -14,16 +11,17 @@ export default function Navbar() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMenu = () => setOpen(!open);
+  const toggleMenu = () => setOpen((p) => !p);
 
-  // Scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
-      setIsScrolled(currentScroll > 10);
 
-      // Only hide on desktop scroll, mobile drawer stays open
-      if (window.innerWidth > 768) {
+      // Navbar becomes solid after scrolling past hero (120px)
+      setIsScrolled(currentScroll > 120);
+
+      // Hide only on large screens when scrolling down
+      if (window.innerWidth >= 1024) {
         currentScroll > lastScrollY ? setShowNav(false) : setShowNav(true);
       }
 
@@ -37,70 +35,83 @@ export default function Navbar() {
   return (
     <nav
       className={`
-    ${isScrolled ? "sticky top-0" : "absolute top-0"}
-    w-full z-50 transition-all duration-300
-    ${showNav ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"}
-    
-    ${
-      isScrolled
-        ? "bg-teal-100/50 border border-teal-100 shadow-lg backdrop-blur-md"
-        : "bg-transparent border-transparent shadow-none"
-    }
-  `}
+        fixed top-0 w-full z-50 transition-all duration-300
+        ${showNav ? "translate-y-0" : "-translate-y-20"}
+        ${
+          isScrolled || open
+            ? "bg-white/90 backdrop-blur-md shadow-sm"
+            : "bg-transparent"
+        }
+      `}
     >
-      <div className="max-w-7xl mx-auto py-3 px-6 flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto h-16 px-6 flex items-center justify-between relative">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/globe.svg"
             alt="RCMIQ Logo"
-            width={50}
-            height={50}
-            className="object-contain cursor-pointer"
+            width={42}
+            height={42}
+            priority
           />
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-10 items-center font-medium absolute left-1/2 -translate-x-1/2">
-          <li className="group relative">
-            <span className="flex items-center gap-1 cursor-pointer">
-              Services <ChevronDown size={16} />
-            </span>
-            <ul className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-xl p-4 space-y-2 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all z-50 min-w-[200px] border border-gray-100">
-              <li>
-                <Link href="/services#healthcare">Healthcare Software</Link>
-              </li>
-              <li>
-                <Link href="/services#financial">Financial Dashboards</Link>
-              </li>
-              <li>
-                <Link href="/services#compliance">HIPAA & Compliance</Link>
-              </li>
-              <li>
-                <Link href="/services#cloud">Secure Cloud Setup</Link>
-              </li>
-            </ul>
-          </li>
+        <ul
+          className={`hidden md:flex gap-10 items-center font-medium absolute left-1/2 -translate-x-1/2 transition-colors duration-300 ${
+            !isScrolled && !open ? "text-black/70" : "text-gray-800"
+          }`}
+        >
+          {["Services", "Solutions"].map((item) => (
+            <li key={item} className="group relative cursor-pointer">
+              <span className="flex items-center gap-1">
+                {item} <ChevronDown size={16} />
+              </span>
 
-          <li className="group relative">
-            <span className="flex items-center gap-1 cursor-pointer">
-              Solutions <ChevronDown size={16} />
-            </span>
-            <ul className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-xl p-4 space-y-2 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all z-50 min-w-[200px] border border-gray-100">
-              <li>
-                <Link href="/solutions#rcm">Revenue Cycle Management</Link>
-              </li>
-              <li>
-                <Link href="/solutions#telehealth">Telehealth Platform</Link>
-              </li>
-              <li>
-                <Link href="/solutions#analytics">Financial Analytics</Link>
-              </li>
-              <li>
-                <Link href="/solutions#automation">Automation Tools</Link>
-              </li>
-            </ul>
-          </li>
+              {/* Dropdown */}
+              <ul className="absolute top-full left-0 mt-0 bg-white rounded-xl p-4 space-y-1 shadow-md border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition min-w-[200px] max-h-60 overflow-auto">
+                {item === "Services" ? (
+                  <>
+                    <LinkItem
+                      href="/services#healthcare"
+                      text="Healthcare Software"
+                    />
+                    <LinkItem
+                      href="/services#financial"
+                      text="Financial Dashboards"
+                    />
+                    <LinkItem
+                      href="/services#compliance"
+                      text="HIPAA & Compliance"
+                    />
+                    <LinkItem
+                      href="/services#cloud"
+                      text="Secure Cloud Setup"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <LinkItem
+                      href="/solutions#rcm"
+                      text="Revenue Cycle Management"
+                    />
+                    <LinkItem
+                      href="/solutions#telehealth"
+                      text="Telehealth Platform"
+                    />
+                    <LinkItem
+                      href="/solutions#analytics"
+                      text="Financial Analytics"
+                    />
+                    <LinkItem
+                      href="/solutions#automation"
+                      text="Automation Tools"
+                    />
+                  </>
+                )}
+              </ul>
+            </li>
+          ))}
 
           <li>
             <Link href="/expertise">Expertise</Link>
@@ -116,19 +127,25 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* CTA Button */}
-        <div className="hidden md:flex">
+        {/* Desktop CTA */}
+        <div className="hidden md:block">
           <Link
             href="/schedule"
-            className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition font-medium"
+            className={`px-5 py-2 rounded-lg transition font-medium ${
+              !isScrolled && !open
+                ? "bg-teal-700 text-white hover:bg-teal-800"
+                : "bg-teal-600 text-white hover:bg-teal-700"
+            }`}
           >
             Schedule a Call
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Button */}
         <button
-          className="md:hidden text-teal-700"
+          className={`md:hidden transition-colors ${
+            !isScrolled && !open ? "text-white" : "text-gray-800"
+          }`}
           onClick={toggleMenu}
           aria-label="Toggle Menu"
         >
@@ -138,86 +155,37 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {open && (
-        <div className="md:hidden px-6 pb-4 animate-fadeIn">
-          <ul className="flex flex-col gap-4 font-medium text-teal-700 items-start">
-            <li className="flex flex-col">
-              <span className="font-semibold">Services</span>
-              <ul className="pl-4 space-y-1">
-                <li>
-                  <Link href="/services#healthcare" onClick={toggleMenu}>
-                    Healthcare Software
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services#financial" onClick={toggleMenu}>
-                    Financial Dashboards
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services#compliance" onClick={toggleMenu}>
-                    HIPAA & Compliance
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services#cloud" onClick={toggleMenu}>
-                    Secure Cloud Setup
-                  </Link>
-                </li>
-              </ul>
-            </li>
+        <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
+          <ul className="px-6 py-6 space-y-4 text-teal-700 font-medium">
+            <MobileGroup title="Services">
+              <MobileLink href="/services#healthcare" toggle={toggleMenu} />
+              <MobileLink href="/services#financial" toggle={toggleMenu} />
+              <MobileLink href="/services#compliance" toggle={toggleMenu} />
+              <MobileLink href="/services#cloud" toggle={toggleMenu} />
+            </MobileGroup>
 
-            <li className="flex flex-col">
-              <span className="font-semibold">Solutions</span>
-              <ul className="pl-4 space-y-1">
-                <li>
-                  <Link href="/solutions#rcm" onClick={toggleMenu}>
-                    Revenue Cycle Management
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/solutions#telehealth" onClick={toggleMenu}>
-                    Telehealth Platform
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/solutions#analytics" onClick={toggleMenu}>
-                    Financial Analytics
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/solutions#automation" onClick={toggleMenu}>
-                    Automation Tools
-                  </Link>
-                </li>
-              </ul>
-            </li>
+            <MobileGroup title="Solutions">
+              <MobileLink href="/solutions#rcm" toggle={toggleMenu} />
+              <MobileLink href="/solutions#telehealth" toggle={toggleMenu} />
+              <MobileLink href="/solutions#analytics" toggle={toggleMenu} />
+              <MobileLink href="/solutions#automation" toggle={toggleMenu} />
+            </MobileGroup>
 
-            <li>
-              <Link href="/expertise" onClick={toggleMenu}>
-                Expertise
+            {["expertise", "about", "resources", "contact"].map((p) => (
+              <Link
+                key={p}
+                href={`/${p}`}
+                onClick={toggleMenu}
+                className="block"
+              >
+                {p.charAt(0).toUpperCase() + p.slice(1)}
               </Link>
-            </li>
-            <li>
-              <Link href="/about" onClick={toggleMenu}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/resources" onClick={toggleMenu}>
-                Resources
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" onClick={toggleMenu}>
-                Contact
-              </Link>
-            </li>
+            ))}
 
-            {/* Mobile CTA */}
             <Link
               href="/schedule"
-              className="btn-primary btn mt-2 transition w-full"
               onClick={toggleMenu}
+              className="block text-center bg-teal-600 text-white py-3 rounded-lg mt-4"
             >
               Schedule a Call
             </Link>
@@ -225,5 +193,44 @@ export default function Navbar() {
         </div>
       )}
     </nav>
+  );
+}
+
+/* Helpers */
+function LinkItem({ href, text }: { href: string; text: string }) {
+  return (
+    <li>
+      <Link
+        href={href}
+        className="hover:text-teal-600 truncate block text-gray-800"
+      >
+        {text}
+      </Link>
+    </li>
+  );
+}
+
+function MobileGroup({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <li>
+      <p className="font-semibold mb-1">{title}</p>
+      <ul className="pl-4 space-y-1">{children}</ul>
+    </li>
+  );
+}
+
+function MobileLink({ href, toggle }: { href: string; toggle: () => void }) {
+  return (
+    <li>
+      <Link href={href} onClick={toggle}>
+        {href.split("#")[1]?.replace("-", " ")}
+      </Link>
+    </li>
   );
 }

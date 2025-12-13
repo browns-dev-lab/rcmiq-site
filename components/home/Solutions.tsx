@@ -9,50 +9,84 @@ const solutions = [
     icon: "/illustrations/ins.jpg",
   },
   {
-    title: "Telehealth Platform",
-    desc: "Secure virtual consultations and patient management.",
+    title: "Medical Billing Services",
+    desc: "Accurate charge capture and faster reimbursements.",
     icon: "/illustrations/bill.jpg",
   },
   {
-    title: "Financial Analytics",
-    desc: "Real-time dashboards, reporting, and predictive insights.",
+    title: "Telehealth Platforms",
+    desc: "Secure virtual consultations and patient management.",
     icon: "/illustrations/ins.jpg",
   },
   {
-    title: "Automation Tools",
-    desc: "Streamline repetitive tasks, increase efficiency, reduce errors.",
+    title: "Eligibility & Verification",
+    desc: "Real-time insurance checks and coverage validation.",
+    icon: "/illustrations/bill.jpg",
+  },
+  {
+    title: "Denial Management",
+    desc: "Reduce claim denials and improve approval rates.",
+    icon: "/illustrations/ins.jpg",
+  },
+  {
+    title: "Financial Analytics",
+    desc: "Dashboards, reporting, and predictive insights.",
+    icon: "/illustrations/bill.jpg",
+  },
+  {
+    title: "Workflow Automation",
+    desc: "Automate repetitive tasks and reduce manual errors.",
+    icon: "/illustrations/ins.jpg",
+  },
+  {
+    title: "Compliance Monitoring",
+    desc: "HIPAA-aligned workflows and audit-ready systems.",
     icon: "/illustrations/bill.jpg",
   },
 ];
 
 export default function SolutionsMarquee() {
   return (
-    <section className="py-12 relative overflow-hidden">
-      <h1 className="text-3xl md:text-4xl font-semibold text-teal-700 mb-6 text-center">
+    <section className="py-12 relative overflow-hidden bg-white">
+      <h2 className="text-3xl md:text-4xl font-semibold text-teal-700 mb-8 text-center">
         What We Offer
-      </h1>
+      </h2>
 
       <div className="relative w-full overflow-hidden">
         <motion.div
-          className="flex gap-4 w-max"
-          animate={{ x: ["0%", "-50%"] }}
+          className="flex gap-6 w-max"
+          animate={{ x: ["0px", "-50%"] }}
           transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 12,
-              ease: "linear",
-            },
+            duration: 30,
+            ease: "linear",
+            repeat: Infinity,
           }}
         >
-          {solutions.concat(solutions).map((s, idx) => (
+          {[...solutions, ...solutions].map((s, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 w-52 bg-white rounded-xl p-3 flex flex-col items-center text-center border border-gray-100"
+              className="
+                flex-shrink-0
+                w-60
+                bg-white
+                rounded-2xl
+                p-4
+                flex flex-col
+                items-center
+                text-center
+                border border-gray-100
+                shadow-sm
+                hover:shadow-md
+                transition
+              "
             >
-              <img src={s.icon} alt={s.title} className="w-20 h-20 mb-2" />
-              <h3 className="font-medium text-teal-700 text-lg">{s.title}</h3>
-              <p className="text-gray-600 text-sm">{s.desc}</p>
+              <img
+                src={s.icon}
+                alt={s.title}
+                className="w-20 h-20 mb-3 object-contain"
+              />
+              <h3 className="font-semibold text-teal-700 text-lg">{s.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </motion.div>

@@ -24,6 +24,21 @@ export default function About() {
         <>
           <StorySection />
           <TeamSection />
+
+          {/* Video Section */}
+          <section className="max-w-6xl mx-auto px-6 py-24">
+            <h2 className="text-4xl font-bold text-teal-700 mb-8 text-center">
+              Our Story in Action
+            </h2>
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+              <video
+                src="/videos/about-us.mp4"
+                controls
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </section>
+
           <ContactUs />
         </>
       )}

@@ -36,7 +36,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <main>
       <Hero />
       <Services />
       <TrustCredibility />
@@ -50,6 +50,6 @@ export default function Home() {
       <Testimonials />
       <ContactUs />
       <TeamSection />
-    </div>
+    </main>
   );
 }

@@ -35,60 +35,72 @@ export default function Features() {
   const scroll = (direction: "left" | "right") => {
     if (!sliderRef.current) return;
 
-    const amount = direction === "left" ? -320 : 320;
-    sliderRef.current.scrollBy({
-      left: amount,
-      behavior: "smooth",
-    });
+    const container = sliderRef.current;
+    const cardWidth = container.firstElementChild?.clientWidth || 300;
+    const amount = direction === "left" ? -cardWidth : cardWidth;
+
+    container.scrollBy({ left: amount, behavior: "smooth" });
   };
 
   return (
-    <section className="relative py-20 px-20 overflow-hidden">
+    <section className="relative py-8 sm:py-12 md:py-20 overflow-hidden">
       {/* Section Header */}
-      <div className="max-w-7xl mx-auto px-6 mb-10 flex items-center justify-between">
-        <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-6 md:mb-10 flex items-center justify-between">
+        <h2 className="text-xl sm:text-2xl md:text-4xl font-semibold text-gray-900">
           Our Core Features
         </h2>
       </div>
 
       {/* Slider */}
       <div className="relative">
-        {/* Left Button */}
+        {/* Arrows – desktop only */}
         <button
           onClick={() => scroll("left")}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full border border-gray-300 bg-white hover:bg-gray-100 transition"
+          className="hidden lg:flex absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full border border-gray-300 bg-white hover:bg-gray-100 transition"
           aria-label="Scroll left"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        {/* Right Button */}
         <button
           onClick={() => scroll("right")}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full border border-gray-300 bg-white hover:bg-gray-100 transition"
+          className="hidden lg:flex absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full border border-gray-300 bg-white hover:bg-gray-100 transition"
           aria-label="Scroll right"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
 
-        {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        {/* Edge fades – desktop only */}
+        <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         {/* Slider Content */}
         <div
           ref={sliderRef}
-          className="flex gap-6 overflow-x-auto px-14 scrollbar-hide scroll-smooth"
+          className="
+            flex gap-4 sm:gap-6
+            overflow-x-auto scroll-smooth
+            px-4 sm:px-6 lg:px-14
+            snap-x snap-mandatory
+            scrollbar-hide
+          "
         >
           {items.map((f) => (
             <div
               key={f.title}
-              className="min-w-[280px] max-w-[280px] bg-white border border-gray-200 rounded-2xl p-6 hover:border-teal-400 transition"
+              className="
+                snap-center
+                min-w-[85%] sm:min-w-[45%] lg:min-w-[280px]
+                max-w-[85%] sm:max-w-[45%] lg:max-w-[280px]
+                bg-white border border-gray-200 rounded-2xl
+                p-5 sm:p-6
+                hover:border-teal-400 transition
+              "
             >
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">
                 {f.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+              <p className="text-sm text-gray-600 leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>

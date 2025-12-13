@@ -2,16 +2,34 @@
 
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Building2,
+  Hospital,
+  CreditCard,
+  ShieldCheck,
+  BarChart3,
+} from "lucide-react";
 
-const testimonials = [
+type Direction = "left" | "right";
+
+interface Testimonial {
+  review: string;
+  name: string;
+  position: string;
+  company: string;
+  Icon: React.ElementType;
+}
+
+const testimonials: Testimonial[] = [
   {
     review:
       "RCMIQ’s solutions transformed our operations. Highly secure, reliable, and intuitive.",
     name: "John Carter",
     position: "Operations Manager",
     company: "HealthTech Inc.",
-    logo: "/logos/healthtech.svg",
+    Icon: Hospital,
   },
   {
     review:
@@ -19,7 +37,7 @@ const testimonials = [
     name: "Jack Wilson",
     position: "Director",
     company: "FinCorp",
-    logo: "/logos/fincorp.svg",
+    Icon: BarChart3,
   },
   {
     review:
@@ -27,7 +45,7 @@ const testimonials = [
     name: "Jenny Lopez",
     position: "Operations Head",
     company: "MediServices",
-    logo: "/logos/mediservices.svg",
+    Icon: ShieldCheck,
   },
   {
     review:
@@ -35,7 +53,7 @@ const testimonials = [
     name: "Amit Sharma",
     position: "CTO",
     company: "CarePlus",
-    logo: "/logos/careplus.svg",
+    Icon: Building2,
   },
   {
     review:
@@ -43,45 +61,72 @@ const testimonials = [
     name: "Sarah Brown",
     position: "Finance Lead",
     company: "PayAxis",
-    logo: "/logos/payaxis.svg",
+    Icon: CreditCard,
   },
 ];
 
 export default function Testimonials() {
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (dir: "left" | "right") => {
-    if (!sliderRef.current) return;
-    const width = sliderRef.current.clientWidth;
-    sliderRef.current.scrollBy({
-      left: dir === "left" ? -width : width,
+  const scroll = (dir: Direction) => {
+    const container = sliderRef.current;
+    if (!container) return;
+
+    const firstCard = container.children[0] as HTMLElement | undefined;
+    const scrollAmount = firstCard?.offsetWidth ?? container.offsetWidth;
+
+    container.scrollBy({
+      left: dir === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",
     });
   };
 
   return (
-    <section className="relative py-12">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-teal-700 mb-12 text-center">
+    <section className="relative py-12 sm:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-700 mb-10 text-center">
           What Our Clients Say
         </h2>
 
-        {/* Carousel */}
         <div className="relative">
-          {/* Left Button */}
+          {/* Left Arrow */}
           <button
             onClick={() => scroll("left")}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-gray-200 text-teal-600 hover:bg-teal-50 transition"
             aria-label="Scroll left"
+            className="
+              hidden sm:flex
+              absolute left-0 top-1/2 -translate-y-1/2 z-20
+              h-11 w-11
+              items-center justify-center
+              rounded-full
+              bg-white
+              border border-teal-100
+              text-teal-700
+              hover:bg-teal-50
+              hover:scale-105
+              transition
+            "
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* Right Button */}
+          {/* Right Arrow */}
           <button
             onClick={() => scroll("right")}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-gray-200 text-teal-600 hover:bg-teal-50 transition"
             aria-label="Scroll right"
+            className="
+              hidden sm:flex
+              absolute right-0 top-1/2 -translate-y-1/2 z-20
+              h-11 w-11
+              items-center justify-center
+              rounded-full
+              bg-white
+              border border-teal-100
+              text-teal-700
+              hover:bg-teal-50
+              hover:scale-105
+              transition
+            "
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -89,31 +134,52 @@ export default function Testimonials() {
           {/* Slider */}
           <div
             ref={sliderRef}
-            className="flex gap-6 overflow-x-auto px-6 scrollbar-hide scroll-smooth snap-x snap-mandatory"
+            className="
+              flex gap-4 sm:gap-6
+              overflow-x-auto
+              scroll-smooth
+              snap-x snap-mandatory
+              scrollbar-hide
+              px-1 sm:px-12
+            "
           >
             {testimonials.map((t, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{ duration: 0.45, delay: idx * 0.08 }}
                 viewport={{ once: true }}
-                className="min-w-[300px] sm:min-w-[360px] snap-start bg-white p-6 rounded-2xl border border-gray-100 flex flex-col gap-4"
+                className="
+                  snap-center shrink-0
+                  min-w-[88%] sm:min-w-[48%] lg:min-w-[360px]
+                  max-w-[88%] sm:max-w-[48%] lg:max-w-[360px]
+                  bg-white
+                  p-5 sm:p-6
+                  rounded-xl sm:rounded-2xl
+                  border border-gray-100
+                  flex flex-col gap-4
+                "
               >
-                <p className="text-gray-700 text-base leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                   “{t.review}”
                 </p>
 
-                <div className="flex items-center gap-3 mt-2">
-                  <img
-                    src={t.logo}
-                    alt={t.company}
-                    className="w-10 h-10 object-contain"
-                  />
+                <div className="flex items-center gap-3 mt-auto">
+                  <div className="w-10 h-10 rounded-lg bg-teal-50 flex items-center justify-center">
+                    <t.Icon className="w-5 h-5 text-teal-600" />
+                  </div>
+
                   <div>
-                    <p className="font-semibold text-teal-700">{t.name}</p>
-                    <p className="text-gray-500 text-sm">{t.position}</p>
-                    <p className="text-gray-400 text-sm">{t.company}</p>
+                    <p className="font-semibold text-teal-700 text-sm sm:text-base">
+                      {t.name}
+                    </p>
+                    <p className="text-gray-500 text-xs sm:text-sm">
+                      {t.position}
+                    </p>
+                    <p className="text-gray-400 text-xs sm:text-sm">
+                      {t.company}
+                    </p>
                   </div>
                 </div>
               </motion.div>

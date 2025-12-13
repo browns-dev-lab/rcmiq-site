@@ -2,7 +2,7 @@
 
 export default function ContactUs() {
   return (
-    <section className="w-full bg-[#00b2ad] px-6 py-14 mt-10 flex items-center">
+    <section className="w-full bg-[#00b2ad] px-6 py-14 flex items-center">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-start w-full">
         {/* Left Text */}
         <div className="md:w-1/2 text-white">
