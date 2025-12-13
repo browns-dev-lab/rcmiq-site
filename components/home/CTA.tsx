@@ -4,7 +4,7 @@
 
 export default function CTA() {
   return (
-    <section className="relative max-w-7xl my-10 mx-auto px-6 py-6 bg-[#00b2ad] text-white rounded-xl flex items-center justify-between gap-4">
+    <section className="relative max-w-7xl mx-auto px-6 py-6 my-6 bg-[#00b2ad] text-white rounded-xl flex items-center justify-between gap-4">
       {/* Optional left label */}
       <div className="flex-1 text-left hidden md:block">
         <p className="text-white/90 font-medium text-sm md:text-base">

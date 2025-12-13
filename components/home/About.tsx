@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section className="w-full bg-white py-20 ">
+    <section className="w-full bg-white py-10 ">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left Image */}
         <motion.div
@@ -17,7 +17,7 @@ export default function AboutSection() {
           className="w-full flex justify-center"
         >
           <Image
-            src="/globe.svg"
+            src="/illustrations/about.jpg"
             alt="About Illustration"
             width={500}
             height={500}

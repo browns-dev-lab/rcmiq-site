@@ -21,7 +21,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="w-full bg-white pb-20">
+    <section className="w-full bg-white pb-10">
       <div className="max-w-6xl mx-auto px-6">
         {/* <h2 className="text-3xl text-gray-800 md:text-4xl font-bold mb-12 text-center">
           What we offer
@@ -38,7 +38,7 @@ export default function Services() {
               viewport={{ once: true }}
               className="
                 aspect-square
-                border border-gray-200 rounded-2xl
+                 rounded-2xl
                 flex flex-col items-center justify-center
                 hover:-translate-y-1 transition
               "
@@ -56,7 +56,7 @@ export default function Services() {
         </div>
 
         {/* Explore More */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -66,7 +66,7 @@ export default function Services() {
           <button className="text-gray-600 text-base font-medium hover:underline flex items-center justify-center gap-1">
             Explore All Services →
           </button>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

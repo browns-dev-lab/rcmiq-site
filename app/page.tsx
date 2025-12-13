@@ -12,6 +12,12 @@ import { RingLoader } from "react-spinners";
 import { useState, useEffect } from "react";
 import Services from "@/components/home/Services";
 import Testimonials from "@/components/home/Testimonials";
+import TrustCredibility from "@/components/home/Credibility";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
+import TeamSection from "@/components/about/Team";
+import Solutions from "./solutions/page";
+import SolutionsMarquee from "@/components/home/Solutions";
+import BlogsCarousel from "@/components/home/BlogsSection";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -33,11 +39,17 @@ export default function Home() {
     <div>
       <Hero />
       <Services />
+      <TrustCredibility />
       <AboutSection />
+      <WhyChooseUs />
+
       <Features />
       <CTA />
+      <SolutionsMarquee />
+      <BlogsCarousel />
       <Testimonials />
       <ContactUs />
+      <TeamSection />
     </div>
   );
 }
