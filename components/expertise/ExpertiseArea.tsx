@@ -56,7 +56,7 @@ export default function ExpertiseArea() {
         "Responsive & accessible design",
         "Workflow optimization",
       ],
-      icon: "/illustrations/hero.png",
+      icon: "/illustrations/ins.jpg",
       bgColor: "bg-yellow-50",
     },
   ];

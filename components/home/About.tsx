@@ -32,7 +32,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-xl sm:text-2xl md:text-4xl text-teal-800 text-brand mb-3 md:mb-4 leading-snug">
+          <h2 className="text-xl sm:text-2xl md:text-4xl text-gray-800 text-brand mb-3 md:mb-4 leading-snug">
             Who We Are?
           </h2>
 

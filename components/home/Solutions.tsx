@@ -48,7 +48,7 @@ const solutions = [
 export default function SolutionsMarquee() {
   return (
     <section className="py-12 relative overflow-hidden bg-white">
-      <h2 className="text-3xl md:text-4xl font-semibold text-teal-700 mb-8 text-center">
+      <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-8 text-center">
         What We Offer
       </h2>
 
@@ -85,7 +85,7 @@ export default function SolutionsMarquee() {
                 alt={s.title}
                 className="w-20 h-20 mb-3 object-contain"
               />
-              <h3 className="font-semibold text-teal-700 text-lg">{s.title}</h3>
+              <h3 className="font-semibold text-blue-700 text-lg">{s.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}

@@ -84,7 +84,7 @@ export default function Testimonials() {
   return (
     <section className="relative py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-700 mb-10 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-10 text-center">
           What Our Clients Say
         </h2>
 
@@ -100,9 +100,9 @@ export default function Testimonials() {
               items-center justify-center
               rounded-full
               bg-white
-              border border-teal-100
-              text-teal-700
-              hover:bg-teal-50
+              border border-blue-100
+              text-blue-700
+              hover:bg-blue-50
               hover:scale-105
               transition
             "
@@ -121,9 +121,9 @@ export default function Testimonials() {
               items-center justify-center
               rounded-full
               bg-white
-              border border-teal-100
-              text-teal-700
-              hover:bg-teal-50
+              border border-blue-100
+              text-blue-700
+              hover:bg-blue-50
               hover:scale-105
               transition
             "
@@ -166,12 +166,12 @@ export default function Testimonials() {
                 </p>
 
                 <div className="flex items-center gap-3 mt-auto">
-                  <div className="w-10 h-10 rounded-lg bg-teal-50 flex items-center justify-center">
-                    <t.Icon className="w-5 h-5 text-teal-600" />
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
+                    <t.Icon className="w-5 h-5 text-blue-600" />
                   </div>
 
                   <div>
-                    <p className="font-semibold text-teal-700 text-sm sm:text-base">
+                    <p className="font-semibold text-blue-700 text-sm sm:text-base">
                       {t.name}
                     </p>
                     <p className="text-gray-500 text-xs sm:text-sm">

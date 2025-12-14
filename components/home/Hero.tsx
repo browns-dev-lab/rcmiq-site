@@ -23,10 +23,10 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/bgs/hero-bg.jpg"
+          src="/bgs/hero-bg.png"
           alt="Background"
           fill
-          className="object-cover object-left opacity-60"
+          className="object-cover object-left opacity-30"
         />
         <div className="absolute inset-0 bg-linear-to-l from-white/95 via-white/50 to-transparent/40" />
       </div>
@@ -131,11 +131,11 @@ export default function Hero() {
         {/* Badge */}
         <div className="absolute inset-0 flex items-center justify-center pb-4 lg:pb-6">
           <Image
-            src="/next.svg"
-            width={70}
-            height={70}
+            src="/brand/logo.svg"
+            width={300}
+            height={300}
             alt="Secure badge"
-            className="opacity-95"
+            className="opacity-50"
           />
         </div>
       </div>

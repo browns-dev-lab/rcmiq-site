@@ -9,7 +9,7 @@ export default function StorySection() {
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/bgs/hero-bg.jpg"
+          src="/bgs/hero-bg.png"
           alt="Our Story Background"
           fill
           className="object-cover opacity-70"

@@ -44,14 +44,14 @@ export default function Navbar() {
         }
       `}
     >
-      <div className="max-w-7xl mx-auto h-16 px-6 flex items-center justify-between relative">
+      <div className="max-w-8xl mx-auto h-16 px-6 flex items-center justify-between relative">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/globe.svg"
+            src="/brand/logo.png"
             alt="RCMIQ Logo"
-            width={42}
-            height={42}
+            width={400}
+            height={400}
             priority
           />
         </Link>
@@ -63,7 +63,10 @@ export default function Navbar() {
           }`}
         >
           {["Services", "Solutions"].map((item) => (
-            <li key={item} className="group relative cursor-pointer">
+            <li
+              key={item}
+              className="group relative cursor-pointer hover:text-orange-500"
+            >
               <span className="flex items-center gap-1">
                 {item} <ChevronDown size={16} />
               </span>
@@ -114,16 +117,24 @@ export default function Navbar() {
           ))}
 
           <li>
-            <Link href="/expertise">Expertise</Link>
+            <Link className="hover:text-orange-500" href="/expertise">
+              Expertise
+            </Link>
           </li>
           <li>
-            <Link href="/about">About</Link>
+            <Link className="hover:text-orange-500" href="/about">
+              About
+            </Link>
           </li>
           <li>
-            <Link href="/resources">Resources</Link>
+            <Link className="hover:text-orange-500" href="/resources">
+              Resources
+            </Link>
           </li>
           <li>
-            <Link href="/contact">Contact</Link>
+            <Link className="hover:text-orange-500" href="/contact">
+              Contact
+            </Link>
           </li>
         </ul>
 
@@ -133,8 +144,8 @@ export default function Navbar() {
             href="/schedule"
             className={`px-5 py-2 rounded-lg transition font-medium ${
               !isScrolled && !open
-                ? "bg-teal-700 text-white hover:bg-teal-800"
-                : "bg-teal-600 text-white hover:bg-teal-700"
+                ? "bg-orange-500 text-white hover:bg-orange-600"
+                : "bg-orange-600 text-white hover:bg-orange-600"
             }`}
           >
             Schedule a Call
@@ -144,7 +155,7 @@ export default function Navbar() {
         {/* Mobile Button */}
         <button
           className={`md:hidden transition-colors ${
-            !isScrolled && !open ? "text-white" : "text-gray-800"
+            !isScrolled && !open ? "text-black" : "text-gray-900"
           }`}
           onClick={toggleMenu}
           aria-label="Toggle Menu"
@@ -156,7 +167,7 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       {open && (
         <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
-          <ul className="px-6 py-6 space-y-4 text-teal-700 font-medium">
+          <ul className="px-6 py-6 space-y-4 text-blue-700 font-medium">
             <MobileGroup title="Services">
               <MobileLink href="/services#healthcare" toggle={toggleMenu} />
               <MobileLink href="/services#financial" toggle={toggleMenu} />
@@ -185,7 +196,7 @@ export default function Navbar() {
             <Link
               href="/schedule"
               onClick={toggleMenu}
-              className="block text-center bg-teal-600 text-white py-3 rounded-lg mt-4"
+              className="block text-center bg-orange-500 text-white py-3 rounded-lg mt-4"
             >
               Schedule a Call
             </Link>
@@ -202,7 +213,7 @@ function LinkItem({ href, text }: { href: string; text: string }) {
     <li>
       <Link
         href={href}
-        className="hover:text-teal-600 truncate block text-gray-800"
+        className="hover:text-blue-600 truncate block text-gray-800"
       >
         {text}
       </Link>

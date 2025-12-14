@@ -20,14 +20,14 @@ export default function AllResourcesGrid() {
           <a
             key={r.title}
             href={r.link}
-            className={`relative group flex items-center justify-center aspect-square text-center text-sm sm:text-base md:text-sm lg:text-base font-medium text-gray-700 hover:text-teal-600 transition
+            className={`relative group flex items-center justify-center aspect-square text-center text-sm sm:text-base md:text-sm lg:text-base font-medium text-gray-700 hover:text-blue-600 transition
               ${idx % 6 !== 5 ? "border-r border-gray-200" : ""} 
               ${idx < 12 ? "border-b border-gray-200" : ""} 
               `}
             title={r.title}
           >
             <div className="px-2">
-              <span className="block text-teal-500 font-semibold mb-1">
+              <span className="block text-blue-500 font-semibold mb-1">
                 {r.type}
               </span>
               <span className="block truncate">{r.title}</span>

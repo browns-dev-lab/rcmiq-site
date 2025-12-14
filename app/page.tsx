@@ -30,7 +30,7 @@ export default function Home() {
   if (loading) {
     return (
       <div className="w-full h-screen flex items-center justify-center">
-        <RingLoader color="#00b2ad" size={80} />
+        <RingLoader color="#f97316" size={80} />
       </div>
     );
   }

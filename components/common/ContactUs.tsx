@@ -2,7 +2,7 @@
 
 export default function ContactUs() {
   return (
-    <section className="w-full bg-[#00b2ad] px-6 py-14 flex items-center">
+    <section className="w-full bg-blue-700 px-6 py-14 flex items-center">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-start w-full">
         {/* Left Text */}
         <div className="md:w-1/2 text-white">
@@ -22,20 +22,20 @@ export default function ContactUs() {
             <input
               type="text"
               placeholder="Your Name"
-              className="border-b border-gray-300 focus:border-teal-500 focus:outline-none text-gray-700 py-2 placeholder-gray-400"
+              className="border-b border-gray-300 focus:border-blue-500 focus:outline-none text-gray-700 py-2 placeholder-gray-400"
             />
             <input
               type="email"
               placeholder="Your Email"
-              className="border-b border-gray-300 focus:border-teal-500 focus:outline-none text-gray-700 py-2 placeholder-gray-400"
+              className="border-b border-gray-300 focus:border-blue-500 focus:outline-none text-gray-700 py-2 placeholder-gray-400"
             />
             <textarea
               placeholder="Your Message"
-              className="border-b border-gray-300 focus:border-teal-500 focus:outline-none text-gray-700 py-2 placeholder-gray-400 resize-none h-32"
+              className="border-b border-gray-300 focus:border-blue-500 focus:outline-none text-gray-700 py-2 placeholder-gray-400 resize-none h-32"
             ></textarea>
             <button
               type="submit"
-              className="bg-[#00b2ad] text-white px-6 py-3 rounded-lg font-medium hover:bg-teal-700 transition"
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition"
             >
               Send Message
             </button>

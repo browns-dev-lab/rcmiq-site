@@ -42,7 +42,7 @@ export default function Solutions() {
   if (loading) {
     return (
       <div className="w-full h-[60vh] flex items-center justify-center">
-        <RingLoader color="#00e6df" size={90} />
+        <RingLoader color="#f97316" size={80} />
       </div>
     );
   }
@@ -62,14 +62,14 @@ export default function Solutions() {
               className="group relative p-6 rounded-3xl bg-white transition-all duration-300 hover:-translate-y-2"
             >
               {/* Accent line */}
-              <span className="absolute left-0 top-6 h-10 w-1 bg-teal-500 rounded-full opacity-0 group-hover:opacity-100 transition" />
+              <span className="absolute left-0 top-6 h-10 w-1 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition" />
 
               {/* Icon blob */}
-              <div className="w-16 h-16 mb-6 mx-auto rounded-2xl bg-teal-100 flex items-center justify-center">
+              <div className="w-16 h-16 mb-6 mx-auto rounded-2xl bg-blue-50 flex items-center justify-center">
                 <img src={s.icon} alt={s.title} className="w-8 h-8" />
               </div>
 
-              <h3 className="text-xl font-semibold text-teal-700 mb-3 text-center">
+              <h3 className="text-xl font-semibold text-blue-700 mb-3 text-center">
                 {s.title}
               </h3>
 

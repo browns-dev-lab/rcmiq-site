@@ -45,7 +45,7 @@ export default function Services() {
                 size={46}
                 className="mb-3"
                 strokeWidth={1}
-                fill="#00e6df"
+                fill="#114abc" // lighter blue
               />
 
               <p className="text-xs sm:text-sm font-semibold text-gray-600 text-center">

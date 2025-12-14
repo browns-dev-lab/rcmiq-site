@@ -94,7 +94,7 @@ export default function Features() {
                 max-w-[85%] sm:max-w-[45%] lg:max-w-[280px]
                 bg-white border border-gray-200 rounded-2xl
                 p-5 sm:p-6
-                hover:border-teal-400 transition
+                hover:border-blue-700 transition
               "
             >
               <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">

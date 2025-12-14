@@ -34,7 +34,7 @@ export default function GuidesSection() {
   ];
 
   return (
-    <section className="relative w-full py-14 bg-teal-50">
+    <section className="relative w-full py-14 bg-blue-50">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <p className="text-gray-700 text-lg mb-12 max-w-3xl mx-auto">
           Dive into our comprehensive guides to stay ahead in healthcare and
@@ -46,13 +46,13 @@ export default function GuidesSection() {
             <motion.a
               key={g.title}
               href={g.link}
-              className="group bg-teal-600 p-6 rounded-2xl flex flex-col items-start hover:scale-105 transition-transform duration-200"
+              className="group bg-blue-600 p-6 rounded-2xl flex flex-col items-start hover:scale-105 transition-transform duration-200"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="w-12 h-12 mb-4 flex items-center justify-center bg-teal-600 rounded-full">
+              <div className="w-12 h-12 mb-4 flex items-center justify-center bg-blue-600 rounded-full">
                 {g.icon}
               </div>
 

@@ -37,7 +37,7 @@ export default function CaseStudiesSection() {
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-14">
-      <h2 className="text-4xl font-bold text-teal-700 mb-6 text-center">
+      <h2 className="text-4xl font-bold text-blue-700 mb-6 text-center">
         Case Studies
       </h2>
 
@@ -60,14 +60,14 @@ export default function CaseStudiesSection() {
               />
             </div>
             <div className="p-6 flex flex-col flex-grow">
-              <span className="text-sm text-teal-500 font-semibold mb-2">
+              <span className="text-sm text-blue-500 font-semibold mb-2">
                 {cs.client}
               </span>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">
                 {cs.title}
               </h3>
               <p className="text-gray-600 flex-grow">{cs.desc}</p>
-              <span className="text-teal-500 font-medium mt-4 group-hover:underline">
+              <span className="text-blue-500 font-medium mt-4 group-hover:underline">
                 Read More →
               </span>
             </div>

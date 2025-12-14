@@ -112,7 +112,7 @@ export default function BlogCarousel() {
               />
 
               <div className="p-4 sm:p-5 flex flex-col gap-2">
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-teal-700">
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-blue-800">
                   {b.title}
                 </h3>
 

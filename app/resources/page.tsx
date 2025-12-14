@@ -19,7 +19,7 @@ export default function Resources() {
   if (loading) {
     return (
       <div className="w-full h-[60vh] flex items-center justify-center">
-        <RingLoader color="#00e6df" size={90} />
+        <RingLoader color="#f97316" size={80} />
       </div>
     );
   }

@@ -14,13 +14,17 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-teal-50 border-t border-teal-200 rounded-t-2xl py-14">
+    <footer className="w-full bg-orange-50 border-t border-orange-200 rounded-t-2xl py-14">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10">
         {/* Brand */}
         <div className="sm:col-span-2 md:col-span-1">
-          <Link href="/" className="flex items-center gap-2 mb-4">
-            <Image src="/globe.svg" alt="rcmiq logo" width={38} height={38} />
-            <span className="text-2xl font-semibold text-teal-700">rcmiq</span>
+          <Link href="/" className="flex">
+            <Image
+              src="/brand/logo.png"
+              alt="rcmiq logo"
+              width={900}
+              height={900}
+            />
           </Link>
 
           <p className="text-gray-700 text-base mb-4 leading-relaxed max-w-sm">
@@ -31,22 +35,22 @@ export default function Footer() {
           <div className="flex items-center gap-4 mb-4">
             {[Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (
               <Link key={i} href="#">
-                <Icon className="w-5 h-5 text-teal-600 hover:text-teal-800 transition" />
+                <Icon className="w-5 h-5 text-orange-500 hover:text-orange-600 transition" />
               </Link>
             ))}
           </div>
 
           <div className="text-gray-700 text-sm space-y-2">
             <p className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-teal-600" />
+              <Mail className="w-4 h-4 text-orange-500" />
               support@rcmiq.com
             </p>
             <p className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-teal-600" />
+              <Phone className="w-4 h-4 text-orange-500" />
               +1 (800) 900-2345
             </p>
             <p className="flex items-start gap-2">
-              <MapPin className="w-6 h-6 text-teal-600 mt-0.5" />
+              <MapPin className="w-6 h-6 text-orange-500 mt-0.5" />
               123 Innovation Drive, Suite 400, San Francisco, CA
             </p>
           </div>
@@ -90,13 +94,13 @@ export default function Footer() {
           },
         ].map((section) => (
           <div key={section.title}>
-            <h4 className="text-base font-semibold text-teal-700 mb-4">
+            <h4 className="text-base font-semibold text-orange-500 mb-4">
               {section.title}
             </h4>
             <ul className="space-y-2 text-gray-700 text-sm">
               {section.links.map((item) => (
                 <li key={item}>
-                  <Link href={section.href} className="hover:text-teal-700">
+                  <Link href={section.href} className="hover:text-orange-500">
                     {item}
                   </Link>
                 </li>

@@ -3,9 +3,9 @@
 :root {
   --heading-font: var(--font-heading);
   /* Base colors */
-  --color-primary: #00b2ad;
-  --color-primary-hover: #00b2ad;
-  --color-secondary: #00e6df;
+  --color-primary: #114abc;
+  --color-primary-hover: #00135c;
+  --color-secondary: #ffb005;
   --color-muted: #6b7280;
   --color-background: #ffffff;
   --color-foreground: #171717;

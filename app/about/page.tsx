@@ -18,7 +18,7 @@ export default function About() {
     <main>
       {loading ? (
         <div className="w-full h-screen flex items-center justify-center">
-          <RingLoader color="#00b2ad" size={70} />
+          <RingLoader color="#f97316" size={80} />
         </div>
       ) : (
         <>
@@ -27,7 +27,7 @@ export default function About() {
 
           {/* Video Section */}
           <section className="max-w-6xl mx-auto px-6 py-24">
-            <h2 className="text-4xl font-bold text-teal-700 mb-8 text-center">
+            <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center">
               Our Story in Action
             </h2>
             <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">

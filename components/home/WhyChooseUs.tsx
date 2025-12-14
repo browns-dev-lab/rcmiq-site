@@ -59,7 +59,7 @@ export default function WhyChooseUs() {
               <item.icon
                 size={28}
                 className="sm:w-8 sm:h-8"
-                style={{ color: "#00e6df" }}
+                style={{ color: "#3B82F6" }}
               />
 
               <h3 className="text-sm sm:text-base md:text-xl font-semibold text-gray-800">

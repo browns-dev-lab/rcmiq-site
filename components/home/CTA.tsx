@@ -10,7 +10,7 @@ export default function CTA() {
         px-4 sm:px-6
         py-4 sm:py-5 md:py-6
         my-4 sm:my-6
-        bg-[#00b2ad] text-white
+        bg-blue-700 text-white
         rounded-lg sm:rounded-xl
         flex items-center justify-center md:justify-between
         gap-3 md:gap-4
@@ -28,7 +28,7 @@ export default function CTA() {
         href="/schedule"
         className="
           inline-flex items-center gap-2
-          bg-white text-teal-700 font-semibold
+          bg-white text-blue-600 font-semibold
           px-4 sm:px-5 md:px-6
           py-2
           rounded-md sm:rounded-lg

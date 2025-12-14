@@ -43,7 +43,7 @@ export default function ResourcesSection() {
       {/* Background Image with Fade */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/bgs/hero-bg.jpg"
+          src="/bgs/hero-bg.png"
           alt="Resources Background"
           fill
           className="object-cover opacity-60"
@@ -78,15 +78,15 @@ export default function ResourcesSection() {
               className="bg-white p-4 sm:p-6 rounded-xl border border-gray-200 transition flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4"
             >
               <div className="flex flex-col">
-                <span className="text-xs sm:text-sm font-semibold text-teal-500 mb-1 sm:mb-2">
+                <span className="text-xs sm:text-sm font-semibold text-blue-500 mb-1 sm:mb-2">
                   {r.type}
                 </span>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-teal-700 mb-1 sm:mb-2">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-blue-700 mb-1 sm:mb-2">
                   {r.title}
                 </h3>
                 <p className="text-gray-700 text-sm sm:text-base">{r.desc}</p>
               </div>
-              <span className="text-teal-500 font-medium mt-2 sm:mt-0 text-sm sm:text-base hover:underline">
+              <span className="text-blue-500 font-medium mt-2 sm:mt-0 text-sm sm:text-base hover:underline">
                 Read More →
               </span>
             </motion.a>
