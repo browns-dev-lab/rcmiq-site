@@ -50,8 +50,8 @@ export default function Navbar() {
           <Image
             src="/brand/logo.png"
             alt="RCMIQ Logo"
-            width={400}
-            height={400}
+            width={300}
+            height={300}
             priority
           />
         </Link>
